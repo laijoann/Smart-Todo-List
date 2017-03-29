@@ -4,9 +4,38 @@
     <title>Home Page</title>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/dashboard.js"></script>
+    <link rel="stylesheet" href="/styles/dashboard.css" type="text/css" />
+
   </head>
 
   <body>
-    <h1>DASHBOARD</h1>
+    <div class="nav-bar">Skeletapp</div>
+
+
+    <main class="container">
+      <section class="new-todo">
+        <h2>What do you need to do?</h2>
+        <form method="POST" action="/:userID">
+          <textarea id= "newTodoText" name="text" placeholder="What needs to be done?"></textarea>
+          <input id="submitTodo" type="submit" value="add it on">
+        </form>
+      </section>
+
+    <article class="todo-list">
+            <div class="todo-category">
+            </div>
+            <body class= "todo-body">
+              <ol>
+                <li>buy a car</li>
+                <li>buy a hat</li>
+                <li>buy a hat shaped like a car</li>
+              </ol>
+            </body>
+            <footer class="todo-footer">
+              <h4>maybe insert icons here later!?</h4>
+            </footer>
+
+    </article>
+
   </body>
 </html>
