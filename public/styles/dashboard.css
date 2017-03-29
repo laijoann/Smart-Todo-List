@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+}
+
+main section {
+    border-radius: 5px;
+    background-color: #dddddd;
+    margin: 2em;
+    padding: 1em 1em 2em 1em;
+
+}
+
+.todo-list {
+  border: 2px solid black;
+}
+
+.nav-bar {
+  background-color: lightsteelblue;
+  width: 100%;
+  z-index: 3;
+  height: 4em;
+}
