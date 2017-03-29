@@ -10,8 +10,8 @@ $(() => {
     categoryArr.forEach((item) => {
       catItems += "<li>" + item + "</li>";
     })
-    let catCard = `<article class=${categoryName}>
-      <div class="todo-category">${categoryName}</div>
+    let catCard = `<article class="todo-list">
+      <div class="todo-category">To ${categoryName}</div>
       <body class= "todo-body">
         <ol>
           ${catItems}
@@ -42,10 +42,10 @@ $(() => {
         break;
       };
     }
-    $('body').after(createCategoryCard(watchList, "To Watch"));
-    $('body').after(createCategoryCard(readList, "To Read"));
-    $('body').after(createCategoryCard(buyList, "To Buy"));
-    $('body').after(createCategoryCard(eatList, "To Eat"));
+    $('body').after(createCategoryCard(watchList, "Watch"));
+    $('body').after(createCategoryCard(readList, "Read"));
+    $('body').after(createCategoryCard(buyList, "Buy"));
+    $('body').after(createCategoryCard(eatList, "Eat"));
   };
 
 });
