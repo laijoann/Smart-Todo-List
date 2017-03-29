@@ -1,5 +1,5 @@
 exports.seed = function(knex, Promise) {
-  return knex('usersdb').del()
+  return knex('usersdb')
     .then(function () {
       return Promise.all([
         knex('usersdb').insert({id: 1, name: 'Sharon', email: 'sharon@s.com', password: '12345', cookie: '1'}),
