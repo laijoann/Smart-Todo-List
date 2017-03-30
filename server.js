@@ -14,7 +14,12 @@ const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 const path    = require("path");
-
+const cookieSession = require('cookie-session');
+app.use(cookieSession({
+  name: 'session',
+  secret: 'cookieKey'
+}))
+const bcrypt = require('bcrypt');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
@@ -23,10 +28,8 @@ const usersRoutes = require("./routes/users");
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
-
 // Log knex SQL queries to STDOUT as well
 app.use(knexLogger(knex));
-
 //app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
@@ -35,25 +38,44 @@ app.use("/styles", sass({
   debug: true,
   outputStyle: 'expanded'
 }));
-app.use(express.static("public"));
-
 // Mount all resource routes
 app.use("/user/dashboard", usersRoutes(knex));
 
-// Home page
 app.get("/", (req, res) => {
-  console.log("get /")
-  res.render("index");
-});
+  if (req.session.name) {
+    res.redirect('/dashboard');
+  } else {
+    res.sendFile(__dirname + "/public/index.html");
+  }
+}); //homepage aka log in page
+
 app.get("/dashboard", (req, res) => {
-  console.log("get /dashboard")
   res.sendFile(__dirname + "/public/dashboard.html");
-});
+}); //dashboard
+
 app.post("/", (req, res) => {
-  //set cookie
-  console.log("post /")
-  res.redirect("/dashboard")
-})
+  const cookieEmail = req.body.email;
+  const cookiePassword = req.body.password;
+  console.log(cookieEmail);
+  console.log(cookiePassword);
+  knex.select('name', 'id')
+    .from('usersdb')
+    .where('email', cookieEmail)
+    .andWhere('password', cookiePassword)
+    .then((results) => {
+      console.log(results);
+      if (results.length > 0) {
+        req.session.name = results[0];
+        res.redirect("/dashboard");
+      } else {
+        res.status(403).send('Log in failed :(');
+      }
+      return null;
+    })
+    .catch(console.error);
+}); //log in validation and redir to user dashboard
+
+app.use(express.static("public"));
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
