@@ -13,7 +13,7 @@ const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
-var path    = require("path");
+const path    = require("path");
 
 
 // Seperated Routes for each Resource
@@ -42,11 +42,18 @@ app.use("/user/dashboard", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
+  console.log("get /")
   res.render("index");
 });
 app.get("/dashboard", (req, res) => {
+  console.log("get /dashboard")
   res.sendFile(__dirname + "/public/dashboard.html");
 });
+app.post("/", (req, res) => {
+  //set cookie
+  console.log("post /")
+  res.redirect("/dashboard")
+})
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

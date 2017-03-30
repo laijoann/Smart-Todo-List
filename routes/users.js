@@ -13,7 +13,6 @@ module.exports = (knex) => {
       .then((results) => {
         res.json(results);
     }); //sample homepage
-
   });
 
   //TODO: 3 files for response-request
