@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: lightslategray;
 }
 
 main section {
@@ -10,8 +11,17 @@ main section {
 
 }
 
+main textarea {
+  resize: vertical;
+  width: 100%;
+}
+
 .todo-list {
   border: 2px solid black;
+  margin: 1em 25% 1em 25%;
+  background: #dddddd;
+  border-radius: 5px;
+
 }
 
 .nav-bar {
@@ -19,4 +29,10 @@ main section {
   width: 100%;
   z-index: 3;
   height: 4em;
+  text-align: right;
+}
+
+.new-todo {
+  margin: 2em 10%;
+  background-color: aliceblue;
 }
