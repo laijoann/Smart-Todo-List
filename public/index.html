@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
+<head>
+  <title>Home Page</title>
 
-  </head>
+</head>
 
-  <body>
-    <h1>login page</h1>
+<body>
+  <h1>login page</h1>
 
-    <img src="./images/cute-skull-wallpaper-17.jpeg" id="mainLogo">
+  <img src="./images/cute-skull-wallpaper-17.jpeg" id="mainLogo">
 
-    <form method="POST" action="/">
-              User name:<input type="text" name="email"/>
-              Password:<input type="password" name="password"/>
-              <input type="submit" value= "Login">
-    </form>
+  <form method="POST" action="/">
+    Email:<input type="email" name="email"/>
+    Password:<input type="password" name="password"/>
+    <input type="submit" value= "Login">
+  </form>
 
-     <form method="POST" action="/register">
-              User name:<input type="text" name="userName"/>
-              Password:<input type="password" name="password"/>
-              <input type="submit" value= "Register">
-    </form>
+  <form method="POST" action="/register">
+    Name:<input type="text" name="name"/>
+    Email:<input type="email" name="email"/>
+    Password:<input type="password" name="password"/>
+    <input type="submit" value= "Register">
+  </form>
 
-<!-- TODO: make a index.js to accompany this file with a submit button on click event handler that makes AJAX request, pings db for user log in authentication, if valid: post. if not: prevent default and give flash message -->
-
-  </body>
+</body>
 </html>
