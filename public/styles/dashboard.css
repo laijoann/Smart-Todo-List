@@ -29,7 +29,7 @@ main textarea {
   width: 100%;
   z-index: 3;
   height: 4em;
-  text-align: right;
+  text-align: center;
 }
 
 .new-todo {
