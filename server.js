@@ -82,12 +82,27 @@ app.post("/", (req, res) => {
   .catch(console.error);
 }); //log in validation and redir to user dashboard
 
-app.get('/editprofile', (req, res) => {
+app.get('/updateprofile', (req, res) => {
   if (req.session.userId) {
     res.sendFile(__dirname + "/public/updateProfile.html");
   } else {
     res.redirect('/');
   }
+})
+
+app.post('/updateprofile', (req, res) => {
+  console.log("updating..") //
+  knex
+  .select('id')
+  .from('usersdb')
+  .where('email', req.session.userId)
+  .then((results) => {
+    knex('usersdb')
+    .where('id', req.session.userId)
+    .update({name: req.body.name, email: req.body.email, password: bcrypt.hashSync(req.body.password, 10)})
+    .then(() => { console.log("updated profile"); res.json("Profile updated!")})
+    .catch(console.error)
+  })
 })
 
 app.get('/logout', (req, res) => {

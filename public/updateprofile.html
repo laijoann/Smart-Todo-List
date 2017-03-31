@@ -2,17 +2,19 @@
 <html lang="en">
   <head>
     <title>Home Page</title>
-
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/updateprofile.js"></script>
 
   </head>
 
   <body>
     <h1>improve yourself</h1>
 
-    <form method="POST" action="/:userID/editProfile">
-              User name:<input type="text" name="userName"/>
-              Password:<input type="password" name="password"/>
-              <input type="submit" value= "login">
+    <form>
+              Name:<input type="text" name="name" class="inputVal">
+              Email:<input type="email" name="email" class="inputVal">
+              Password:<input type="password" name="password" class="inputVal">
+              <input type="submit" value= "update">
     </form>
 
   </body>
