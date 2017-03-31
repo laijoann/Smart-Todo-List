@@ -115,6 +115,7 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/todo', (req, res) => {
+  console.log(req.body);
   knex('masterdb')
   .select('*')
   .where('todo', req.body.text)

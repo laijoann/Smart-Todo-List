@@ -8,21 +8,30 @@ $(() => {
 
   function createCategoryCard (categoryArr, categoryName) {
     console.log('creating')
-    let catItems = "";
+
+    let catItems = '';
     categoryArr.forEach((item) => {
-      catItems += "<li>" + item + "</li>";
+      catItems += `<li>
+      <div class="collapsible-header">${item}</div>
+      <div class="collapsible-body"><span>shaped like a banana</span>
+        <img src="/images/deleteicon.png" class="material-icons">
+        <img src="/images/list.ico" class="material-icons">
+      </div>
+    </li>`
     })
-    let catCard = `<article class="todo-list ${categoryName}">
-    <div class="todo-category">To ${categoryName}</div>
-    <body class= "todo-body">
-    <ol>
+
+    let catCard = '';
+     catCard += `<section class="todolist ${categoryName}">
+
+  <ul class="collapsible" data-collapsible="accordion">
     ${catItems}
-    </ol>
-    </body>
-    </article>`;
+  </ul>
+  </section>`
     console.log(catCard)
     return catCard;
   }
+  //TODO: HAVE SEPARATE DIV HEADER AND SECTION BITS
+
 
   function renderCategories (todoObj) {
     const watchList = [];
@@ -45,10 +54,10 @@ $(() => {
         break;
       };
     }
-    $('body').after(createCategoryCard(watchList, "watch"));
-    $('body').after(createCategoryCard(readList, "read"));
-    $('body').after(createCategoryCard(buyList, "buy"));
-    $('body').after(createCategoryCard(eatList, "eat"));
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To watch</div>`+createCategoryCard(watchList, "watch"));
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To read</div>`+createCategoryCard(readList, "read"));
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To buy</div>`+createCategoryCard(buyList, "buy"));
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To eat</div>`+createCategoryCard(eatList, "eat"));
   };
 
   $('form').on("submit", (event) => {
@@ -59,14 +68,12 @@ $(() => {
       type:'POST',
       data: $('form').serialize()
     }).done((todoObj) => {
-      console.log(todoObj)
       const singleCatTodo = [];
       const singleCat = todoObj[0]['category'];
       todoObj.forEach((todo) => {
         singleCatTodo.push(todo['todo'])
       });
       const catCard = createCategoryCard(singleCatTodo, singleCat);
-      console.log(singleCatTodo, catCard)
       $(`.${singleCat}`).replaceWith(catCard);
     })
     $("textarea").val("");
