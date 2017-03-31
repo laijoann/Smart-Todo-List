@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
+<head>
+  <title>Home Page</title>
 
-  </head>
+</head>
 
-  <body>
-    <h1>login page</h1>
+<body>
+  <h1>login page</h1>
 
-    <img src="./images/cute-skull-wallpaper-17.jpeg" id="mainLogo">
+  <img src="./images/cute-skull-wallpaper-17.jpeg" id="mainLogo">
 
 <section class="homePageLogin">
 
 
-  <form class="col s12">
+  <form class="col s12" method="POST" action="/">
     <div class="row">
       <div class="input-field col s3 offset-8">
-        <input id="loginEmail" type="text" class="validate">
+        <input id="loginEmail" type="text" class="validate" name="email">
         <label for="first_name"><br>Email</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s3 offset-8">
-        <input id="password" type="password" class="validate">
+        <input id="password" type="password" class="validate" name="password">
         <label for="password"><br>Password</label>
-        <form method="POST" action="/">
           <br><input type="submit" id="loginButton" value= "Login">
-        </form>
       </div>
     </div>
-
+</form>
 </section>
+
 <section class="homePageRegister">
 
   <div class="row">
-    <form class="col s12">
+    <form class="col s12" method="POST" action="/register">
       <div class="row">
         <div class="input-field col s3 offset-8">
-          <input id="first_name" type="text" class="validate">
+          <input id="first_name" type="text" class="validate" name="name">
           <label for="first_name"><br>Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3 offset-8">
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" class="validate" name="password">
           <label for="password"><br>Password</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3 offset-8">
-          <input id="email" type="email" class="validate">
+          <input id="email" type="email" class="validate" name="email">
           <label for="email"><br>Email</label>
         </div>
       </div>
-      <form method="POST" action="/register">
           <br><input type="submit" id="registerButton" value= "Register">
-      </form>
-
     </form>
   </div>
 </section>
@@ -69,6 +65,8 @@
   <link rel="stylesheet" href="/styles/index.css" type="text/css" />
 
   </body>
+
+
 </html>
 
 
