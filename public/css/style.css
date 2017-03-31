@@ -1,0 +1,75 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+body {
+  background: lightslategrey;
+}
+
+.nav-wrapper {
+    background: lightsteelblue;
+    text-align: center;
+    border-bottom: 1px solid aliceblue;
+}
+
+.new-todo {
+    background: aliceblue;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 2em 25%;
+}
+
+.todolist {
+    position: relative;
+    left: 10%;
+}
+
+.new-todo h2 {
+  font-size: 2em;
+}
+
+.collapsible {
+  margin: 1em 10%;
+  width: 40%;
+}
+
+.collapsible-body {
+  background: coral;
+}
+
+.material-icons{
+  height: 1em;
+  width: 1em;
+  float: right;
+  position: relative;
+  top: 2em;
+  left: 1.5em;
+  margin: 0.25em;
+}
+
+#submitTodo {
+    margin: 0.5em;
+}
+
+#newTodoText {
+    width: 95%;
+    margin: 0 0.5em;
+    resize: none;
+}
+
+#buybutton {
+    float: left;
+    border: 2px solid black;
+    font-size: 1.70em;
+    background: coral;
+    border-radius: 10%;
+
+}
+
+.dropdown-button {
+  float:  right;
+}
