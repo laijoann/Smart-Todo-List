@@ -58,11 +58,11 @@ $(() => {
         break;
       };
     }
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Misc</div>`+createCategoryCard(miscList, "misc"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To watch</div>`+createCategoryCard(watchList, "watch"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To read</div>`+createCategoryCard(readList, "read"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To buy</div>`+createCategoryCard(buyList, "buy"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To eat</div>`+createCategoryCard(eatList, "eat"));
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Miscellaneous</div>`+createCategoryCard(miscList, "misc"));
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Things to watch</div>`+createCategoryCard(watchList, "watch"));
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Books to read</div>`+createCategoryCard(readList, "read"));
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy</div>`+createCategoryCard(buyList, "buy"));
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Places to eat at</div>`+createCategoryCard(eatList, "eat"));
   };
 
   $('form').on("submit", (event) => {

@@ -2,10 +2,9 @@
 
 var wikipedia = require("node-wikipedia");
 
-let queryItem = 'Moonrise Kingdom'
-
 module.exports = (queryItem) => new Promise((res) => {
 	wikipedia.page.data(queryItem, { content: true }, function(response) {
+		console.log(response['categories'])
 		if (response === undefined) {
 			console.log('misc');
 			res('misc');
@@ -33,11 +32,12 @@ module.exports = (queryItem) => new Promise((res) => {
 		response['categories'].forEach((item) => {
 			let compare = item['*']
 
-			if (compare.includes('novel') || compare.includes('book')) {
+			if (compare.includes('novel') || compare.includes('book') || compare.includes('literature')) {
 				catObj.read.val += 1;
 			} else if (compare.includes('film') || compare.includes('television')) {
 				catObj.watch.val += 1;
-			} else if (compare.includes('clothing') || compare.includes('fruit')) {
+			} else if (compare.includes('clothing') || compare.includes('fruit') ||
+			compare.includes('bread') || compare.includes('fashion')) {
 				catObj.buy.val += 1;
 			} else if (compare.includes('restaurant')) {
 				catObj.eat.val += 1;
