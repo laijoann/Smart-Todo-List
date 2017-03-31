@@ -38,6 +38,7 @@ $(() => {
     const readList = [];
     const buyList = [];
     const eatList = [];
+    const miscList = [];
     for(todo of todoObj) {
       switch(todo.category) {
         case 'watch':
@@ -52,8 +53,12 @@ $(() => {
         case 'eat':
         eatList.push(todo.todo);
         break;
+        case 'misc':
+        miscList.push(todo.todo);
+        break;
       };
     }
+    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Misc</div>`+createCategoryCard(miscList, "misc"));
     $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To watch</div>`+createCategoryCard(watchList, "watch"));
     $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To read</div>`+createCategoryCard(readList, "read"));
     $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">To buy</div>`+createCategoryCard(buyList, "buy"));

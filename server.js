@@ -8,7 +8,6 @@ const express     = require("express");
 const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
-
 const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
@@ -20,13 +19,17 @@ app.use(cookieSession({
   secret: 'cookieKey'
 }))
 const bcrypt = require('bcrypt');
+const wikipedia = require("node-wikipedia");
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 
+const wikiQuery = require('./wikiAPI.js');
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+
 app.use(morgan('dev'));
 // Log knex SQL queries to STDOUT as well
 app.use(knexLogger(knex));
@@ -115,14 +118,10 @@ app.post('/register', (req, res) => {
 })
 
 app.post('/todo', (req, res) => {
-  console.log(req.body);
-  knex('masterdb')
-  .select('*')
-  .where('todo', req.body.text)
-  .then((results) => {
-    console.log(results)
+  wikiQuery(req.body.text)
+  .then((category) => {
     knex('tododb')
-    .insert({todo: req.body.text, category: results[0]['category'], usersid: req.session.userId})
+    .insert({todo: req.body.text, category: category, usersid: req.session.userId})
     .returning('category')
     .then((categoryArr) => {
       console.log(categoryArr)
@@ -136,8 +135,8 @@ app.post('/todo', (req, res) => {
       })
     })
   })
-  .catch(console.error)
-})
+  .catch(console.error);
+}); //queries wikipedia for the category it belongs to, then inserts the todo into the db, and sends back all todos that belongs in that category that this user has
 
 app.use(express.static("public"));
 
