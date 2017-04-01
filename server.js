@@ -105,17 +105,18 @@ app.post('/updateprofile', (req, res) => {
   })
 })
 
-//TODO: DOES THE DEL BUTTON WORK?
 app.post('/delete/:delItem/:delCat', (req, res) => {
+  console.log("deleting")
+  console.log(req.session.userId)
   knex('tododb')
   .where('usersid', req.session.userId)
-  .andWhere('todo', req.param.delItem)
+  .andWhere('todo', req.params.delItem)
   .del()
   .then(() => {
     knex('tododb')
     .select()
     .where('usersid', req.session.userId)
-    .andWhere('category', req.param.delCat)
+    .andWhere('category', req.params.delCat)
     .then((catObj) => {
       res.json(catObj)
     })

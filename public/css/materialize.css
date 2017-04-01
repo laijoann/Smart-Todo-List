@@ -5623,7 +5623,7 @@ button.btn-floating {
 }
 
 .collapsible-body {
-  display: none;
+  visibility: hidden;
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
   padding: 2rem;
@@ -8870,5 +8870,3 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     margin-bottom: 5em;
   }
 }
-
-

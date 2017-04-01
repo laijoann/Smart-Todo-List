@@ -14,21 +14,23 @@ $(() => {
     let catItems = '';
     categoryArr.forEach((item) => {
       catItems += `<li>
-      <div class="collapsible-header">${item}</div>
-      <div class="collapsible-body"><span>shaped like a banana</span>
-        <img data-todo="${item}" data-cat="${categoryName}" src="/images/deleteicon.png" class="delete-icon">
-        <img src="/images/list.ico" class="recat-icon">
+      <div class="collapsible-header">
+      ${item}
       </div>
-    </li>`
+      <div class="collapsible-body"><span>shaped like a banana</span>
+      <img src="/images/list.ico" class="recat-icon">
+      <img data-todo="${item}" data-cat="${categoryName}" src="/images/deleteicon.png" class="delete-icon">
+      </div>
+      </li>`
     })
 
     let catCard = '';
-     catCard += `<section class="todolist ${categoryName}">
+    catCard += `<section class="todolist ${categoryName}">
 
-  <ul class="collapsible" data-collapsible="accordion">
+    <ul class="collapsible" data-collapsible="accordion">
     ${catItems}
-  </ul>
-  </section>`
+    </ul>
+    </section>`
     console.log(catCard)
     return catCard;
   }
@@ -86,9 +88,16 @@ $(() => {
     })
   })
 
-//TODO: DOES THE DEL BUTTON WORK?
-  $(".main").on("click", "delete-icon", function(e) {
-    console.log($(e.target));
+  $("body").on("click", 'div.collapsible-header', function(e) {
+    if ($(e.target).siblings().css('display') === 'none') {
+      $(e.target).siblings().css('display', 'block');
+    } else {
+      $(e.target).siblings().css('display', 'none')
+    }
+  })
+
+  $("body").on("click", "img.delete-icon", function(e) {
+    console.log("hello?", $(e.target).data('cat'));
     let delItem = $(e.target).data('todo');
     let delCat = $(e.target).data('cat');
     $.ajax({
@@ -100,7 +109,7 @@ $(() => {
         singleCatTodo.push(todo['todo'])
       });
       const catCard = createCategoryCard(singleCatTodo, delCat);
-      $(`.${singleCat}`).replaceWith(catCard);
+      $(`.${delCat}`).replaceWith(catCard);
     })
   });
 
