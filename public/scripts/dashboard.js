@@ -1,3 +1,5 @@
+// TODO: add a data validation for posting new to do such that there are no repeat to dos
+
 $(() => {
   console.log("jquery loaded")
 
@@ -14,8 +16,8 @@ $(() => {
       catItems += `<li>
       <div class="collapsible-header">${item}</div>
       <div class="collapsible-body"><span>shaped like a banana</span>
-        <img src="/images/deleteicon.png" class="material-icons">
-        <img src="/images/list.ico" class="material-icons">
+        <img data-todo="${item}" data-cat="${categoryName}" src="/images/deleteicon.png" class="delete-icon">
+        <img src="/images/list.ico" class="recat-icon">
       </div>
     </li>`
     })
@@ -58,11 +60,11 @@ $(() => {
         break;
       };
     }
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Miscellaneous</div>`+createCategoryCard(miscList, "misc"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Things to watch</div>`+createCategoryCard(watchList, "watch"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Books to read</div>`+createCategoryCard(readList, "read"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy</div>`+createCategoryCard(buyList, "buy"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Places to eat at</div>`+createCategoryCard(eatList, "eat"));
+    $('main').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Miscellaneous</div>`+createCategoryCard(miscList, "misc"));
+    $('main').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Things to watch</div>`+createCategoryCard(watchList, "watch"));
+    $('main').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Books to read</div>`+createCategoryCard(readList, "read"));
+    $('main').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy</div>`+createCategoryCard(buyList, "buy"));
+    $('main').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Places to eat at</div>`+createCategoryCard(eatList, "eat"));
   };
 
   $('form').on("submit", (event) => {
@@ -80,8 +82,26 @@ $(() => {
       });
       const catCard = createCategoryCard(singleCatTodo, singleCat);
       $(`.${singleCat}`).replaceWith(catCard);
+      $("textarea").val("");
     })
-    $("textarea").val("");
   })
+
+//TODO: DOES THE DEL BUTTON WORK?
+  $(".main").on("click", "delete-icon", function(e) {
+    console.log($(e.target));
+    let delItem = $(e.target).data('todo');
+    let delCat = $(e.target).data('cat');
+    $.ajax({
+      url: `/delete/${delItem}/${delCat}`,
+      type: "POST",
+    }).done((todoObj) => {
+      const singleCatTodo = [];
+      todoObj.forEach((todo) => {
+        singleCatTodo.push(todo['todo'])
+      });
+      const catCard = createCategoryCard(singleCatTodo, delCat);
+      $(`.${singleCat}`).replaceWith(catCard);
+    })
+  });
 
 });
