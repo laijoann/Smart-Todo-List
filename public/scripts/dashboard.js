@@ -8,7 +8,7 @@ $(() => {
   }).done((todoObj) => {renderCategories(todoObj)});
 
   function createCategoryCard (todoObj, categoryName) {
-    let catItems = `${categoryName}`;
+    let catItems = '';
     todoObj.forEach((item) => {
       catItems += `<div data-cat="${categoryName}" data-id=${item['id']} class="collapsible-header">${item['todo']}
       <div class="collapsible-body">sample text
