@@ -63,6 +63,9 @@ body {
     resize: none;
 }
 
+.catcard {
+  margin-bottom: 5%;
+}
 
 button {
     float: left;

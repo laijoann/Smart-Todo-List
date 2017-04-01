@@ -39,6 +39,7 @@ module.exports = (queryItem) => new Promise((res) => {
 			} else if (compare.includes('clothing') || compare.includes('fruit') ||
 			compare.includes('bread') || compare.includes('fashion')) {
 				catObj.buy.val += 1;
+
 			} else if (compare.includes('restaurant')) {
 				catObj.eat.val += 1;
 			}

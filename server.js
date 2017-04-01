@@ -105,6 +105,25 @@ app.post('/updateprofile', (req, res) => {
   })
 })
 
+app.post('/delete/:delItem/:delCat', (req, res) => {
+  console.log("deleting")
+  console.log(req.session.userId)
+  knex('tododb')
+  .where('usersid', req.session.userId)
+  .andWhere('todo', req.params.delItem)
+  .del()
+  .then(() => {
+    knex('tododb')
+    .select()
+    .where('usersid', req.session.userId)
+    .andWhere('category', req.params.delCat)
+    .then((catObj) => {
+      res.json(catObj)
+    })
+  })
+})
+
+
 app.get('/logout', (req, res) => {
   req.session = null;
   res.redirect('/');

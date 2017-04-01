@@ -1,3 +1,5 @@
+// TODO: add a data validation for posting new to do such that there are no repeat to dos
+
 $(() => {
   console.log("jquery loaded")
 
@@ -12,21 +14,24 @@ $(() => {
     let catItems = '';
     categoryArr.forEach((item) => {
       catItems += `<li>
-      <div class="collapsible-header">${item}</div>
-      <div class="collapsible-body"><span>shaped like a banana</span>
-        <img src="/images/deleteicon.png" class="material-icons">
-        <img src="/images/list.ico" class="material-icons">
+      <div class="collapsible-header">
+      ${item}
       </div>
-    </li>`
+      <div class="collapsible-body"><span>shaped like a banana</span>
+      <img src="/images/list.ico" class="recat-icon">
+      <img data-todo="${item}" data-cat="${categoryName}" src="/images/deleteicon.png" class="delete-icon">
+      </div>
+      </li>`
     })
 
     let catCard = '';
-     catCard += `<section class="todolist ${categoryName}">
+    catCard += `<section class="todolist ${categoryName}">
 
-  <ul class="collapsible" data-collapsible="accordion">
+    <ul class="collapsible" data-collapsible="accordion">
     ${catItems}
   </ul>
-  </section><br><br>`
+  </section>`
+
     console.log(catCard)
     return catCard;
   }
@@ -58,11 +63,12 @@ $(() => {
         break;
       };
     }
-    $('body').after(`<button id="miscbutton" class="col s2 offset-s1 todo-list">Miscellaneous</button>`+createCategoryCard(miscList, "misc"));
-    $('body').after(`<button id="watchbutton" class="col s2 offset-s1 todo-list">Things to watch</button>`+createCategoryCard(watchList, "watch"));
-    $('body').after(`<button id="readbutton" class="col s2 offset-s1 todo-list">Books to read</button>`+createCategoryCard(readList, "read"));
-    $('body').after(`<button id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy</button>`+createCategoryCard(buyList, "buy"));
-    $('body').after(`<button id="eatbutton" class="col s2 offset-s1 todo-list">Places to eat at</button>`+createCategoryCard(eatList, "eat"));
+    $('body').after(`<div class="catcard"><button id="miscbutton" class="col s2 offset-s1 todo-list">Miscellaneous</button>${createCategoryCard(miscList, "misc")}</div>`);
+    $('body').after(`<div class="catcard"><button id="watchbutton" class="col s2 offset-s1 todo-list">Things to watch</button>${createCategoryCard(watchList, "watch")}</div>`);
+    $('body').after(`<div class="catcard"><button id="readbutton" class="col s2 offset-s1 todo-list">Books to read</button>${createCategoryCard(readList, "read")}</div>`);
+    $('body').after(`<div class="catcard"><button id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy</button>${createCategoryCard(buyList, "buy")}</div>`);
+    $('body').after(`<div class="catcard"><button id="eatbutton" class="col s2 offset-s1 todo-list">Places to eat at</button>${createCategoryCard(eatList, "eat")}</div>`);
+
   };
 
 
@@ -81,58 +87,86 @@ $(() => {
       });
       const catCard = createCategoryCard(singleCatTodo, singleCat);
       $(`.${singleCat}`).replaceWith(catCard);
+      $("textarea").val("");
     })
-    $("textarea").val("");
   })
 
- $('#miscbutton').on("click", function(){
-  console.log("wtf mate")
+// <<<<<<< HEAD
+//  $('#miscbutton').on("click", function(){
+//   console.log("wtf mate")
 
-    let catSlide = $(".misc")
-    if ((catSlide).is(":visible")) {
-    catSlide.slideUp();
+//     let catSlide = $(".misc")
+//     if ((catSlide).is(":visible")) {
+//     catSlide.slideUp();
+//     } else {
+//     catSlide.slideDown();
+//     }
+// });
+
+//  $('#watchbutton').click(function(){
+//   console.log("wtf mate")
+
+//     let catSlide = $(".watch")
+//     if ($(catSlide).is(":visible")) {
+//     catSlide.slideUp();
+//     } else {
+//     catSlide.slideDown();
+//     }
+// });
+
+//   $("#readbutton").click(function(){
+//     let catSlide = $(".read")
+//     if ($(catSlide).is(":visible")) {
+//     catSlide.slideLeft();
+//     } else {
+//     catSlide.slideRight();
+//     }
+  $("body").on("click", 'div.collapsible-header', function(e) {
+    console.log("um")
+    if ($(e.target).siblings().css('display') === 'none') {
+      $(e.target).siblings().css('display', 'block');
     } else {
-    catSlide.slideDown();
+      $(e.target).siblings().css('display', 'none')
     }
-});
+  })
 
- $('#watchbutton').click(function(){
-  console.log("wtf mate")
+  $("body").on("click", "img.delete-icon", function(e) {
+    console.log("hello?", $(e.target).data('cat'));
+    let delItem = $(e.target).data('todo');
+    let delCat = $(e.target).data('cat');
+    $.ajax({
+      url: `/delete/${delItem}/${delCat}`,
+      type: "POST",
+    }).done((todoObj) => {
+      const singleCatTodo = [];
+      todoObj.forEach((todo) => {
+        singleCatTodo.push(todo['todo'])
+      });
+      const catCard = createCategoryCard(singleCatTodo, delCat);
+      $(`.${delCat}`).replaceWith(catCard);
+    })
+  });
 
-    let catSlide = $(".watch")
-    if ($(catSlide).is(":visible")) {
-    catSlide.slideUp();
-    } else {
-    catSlide.slideDown();
-    }
-});
+// >>>>>>> c85ab9be4adda493bf9922d4ac8de031fd4882ea
+// });
 
-  $("#readbutton").click(function(){
-    let catSlide = $(".read")
-    if ($(catSlide).is(":visible")) {
-    catSlide.slideLeft();
-    } else {
-    catSlide.slideRight();
-    }
-});
+//    $("#buybutton").click(function(){
+//     let catSlide = $(".buy")
+//     if ($(catSlide).is(":visible")) {
+//     catSlide.slideUp();
+//     } else {
+//     catSlide.slideDown();
+//     }
+// });
 
-   $("#buybutton").click(function(){
-    let catSlide = $(".buy")
-    if ($(catSlide).is(":visible")) {
-    catSlide.slideUp();
-    } else {
-    catSlide.slideDown();
-    }
-});
-
-  $("#eatbutton").click(function(){
-    let catSlide = $(".todolist .eat")
-    if ($(catSlide).is(":visible")) {
-    catSlide.slideUp();
-    } else {
-    catSlide.slideDown();
-    }
-});
+//   $("#eatbutton").click(function(){
+//     let catSlide = $(".todolist .eat")
+//     if ($(catSlide).is(":visible")) {
+//     catSlide.slideUp();
+//     } else {
+//     catSlide.slideDown();
+//     }
+// });
 });
 
 
