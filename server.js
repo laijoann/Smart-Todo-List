@@ -123,7 +123,6 @@ app.post('/delete/:delItem/:delCat', (req, res) => {
   })
 })
 
-
 app.get('/logout', (req, res) => {
   req.session = null;
   res.redirect('/');
@@ -171,6 +170,16 @@ app.post('/todo', (req, res) => {
   })
   .catch(console.error);
 }); //queries wikipedia for the category it belongs to, then inserts the todo into the db, and sends back all todos that belongs in that category that this user has
+
+app.post('/update/:newCat/:id', (req, res) => {
+  console.log("recategorizing")
+  knex('tododb')
+  .where('id', req.params.id)
+  .update('category', req.params.newCat)
+  .then(() => {
+    res.json("recategorized")
+  })
+})
 
 app.use(express.static("public"));
 

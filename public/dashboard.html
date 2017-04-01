@@ -4,11 +4,13 @@
   <title>Home Page</title>
   <link rel="stylesheet" href="/styles/dashboard.css" type="text/css" </link>
   <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/vendor/dragula.js"></script>
+  <link rel="stylesheet" type="text/css" href="/vendor/dragula.css"></link>
+  <script type="text/javascript" src="/scripts/dashboard.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
 
 </head>
-
-<body>
-
 
   <ul id="dropdown1" class="dropdown-content">
     <li><a href="/updateprofile">Edit Profile</a></li>
@@ -33,9 +35,12 @@
       </form>
     </section>
   </main>
+  <div data-cat="watch" id="watch"></div>
+  <div data-cat="read" id="read"></div>
+  <div data-cat="eat" id="eat"></div>
+  <div data-cat="buy" id="buy"></div>
+  <div data-cat="misc" id="misc"></div>
 </body>
-<script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-<script type="text/javascript" src="/scripts/dashboard.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
+
 
 </html>

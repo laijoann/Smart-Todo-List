@@ -1,41 +1,22 @@
 // TODO: add a data validation for posting new to do such that there are no repeat to dos
 
 $(() => {
-  console.log("jquery loaded")
 
   $.ajax({
     method: "GET",
     url: `/user/dashboard/`,
   }).done((todoObj) => {renderCategories(todoObj)});
 
-  function createCategoryCard (categoryArr, categoryName) {
-    console.log('creating')
-
-    let catItems = '';
-    categoryArr.forEach((item) => {
-      catItems += `<li>
-      <div class="collapsible-header">
-      ${item}
-      </div>
-      <div class="collapsible-body"><span>shaped like a banana</span>
-      <img data-todo="${item}" data-cat="${categoryName}" src="/images/deleteicon.png" class="delete-icon">
-      </div>
-      </li>`
+  function createCategoryCard (todoObj, categoryName) {
+    let catItems = `${categoryName}`;
+    todoObj.forEach((item) => {
+      catItems += `<div data-cat="${categoryName}" data-id=${item['id']} class="collapsible-header">${item['todo']}
+      <div class="collapsible-body">sample text
+      <img data-todo="${item['todo']}" data-cat="${categoryName}" src="/images/deleteicon.png" class="delete-icon">
+      </div></div>`
     })
-
-    let catCard = '';
-    catCard += `<section class="todolist ${categoryName}">
-
-    <ul class="collapsible" data-collapsible="accordion">
-    ${catItems}
-    </ul>
-    </section>`
-
-    console.log(catCard)
-    return catCard;
+    return catItems;
   }
-  //TODO: HAVE SEPARATE DIV HEADER AND SECTION BITS
-
 
   function renderCategories (todoObj) {
     const watchList = [];
@@ -46,30 +27,30 @@ $(() => {
     for(todo of todoObj) {
       switch(todo.category) {
         case 'watch':
-        watchList.push(todo.todo);
+        watchList.push(todo);
         break;
         case 'read':
-        readList.push(todo.todo);
+        readList.push(todo);
         break;
         case 'buy':
-        buyList.push(todo.todo);
+        buyList.push(todo);
         break;
         case 'eat':
-        eatList.push(todo.todo);
+        eatList.push(todo);
         break;
         case 'misc':
-        miscList.push(todo.todo);
+        miscList.push(todo);
         break;
       };
     }
-    $('main').after(`<div class="catcard" id="miscbutton" class="col s2 offset-s1 todo-list">Miscellaneous${createCategoryCard(miscList, "misc")}</div>`);
-    $('main').after(`<div class="catcard" id="watchbutton" class="col s2 offset-s1 todo-list">Things to watch${createCategoryCard(watchList, "watch")}</div>`);
-    $('main').after(`<div class="catcard" id="readbutton" class="col s2 offset-s1 todo-list">Books to read${createCategoryCard(readList, "read")}</div>`);
-    $('main').after(`<div class="catcard" id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy${createCategoryCard(buyList, "buy")}</div>`);
-    $('main').after(`<div class="catcard" id="eatbutton" class="col s2 offset-s1 todo-list">Places to eat at${createCategoryCard(eatList, "eat")}</div>`);
+    $('#watch').html(createCategoryCard(watchList, 'watch'));
+    $('#read').html(createCategoryCard(readList, 'read'));
+    $('#eat').html(createCategoryCard(eatList, 'eat'));
+    $('#buy').html(createCategoryCard(buyList, 'buy'));
+    $('#misc').html(createCategoryCard(miscList, 'misc'));
 
+    dragAndDrop.init();
   };
-
 
   $('form').on("submit", (event) => {
     console.log("form submit")
@@ -79,41 +60,68 @@ $(() => {
       type:'POST',
       data: $('form').serialize()
     }).done((todoObj) => {
-      const singleCatTodo = [];
       const singleCat = todoObj[0]['category'];
-      todoObj.forEach((todo) => {
-        singleCatTodo.push(todo['todo'])
-      });
-      const catCard = createCategoryCard(singleCatTodo, singleCat);
-      $(`.${singleCat}`).replaceWith(catCard);
+      const catCard = createCategoryCard(todoObj, singleCat);
+      $(`#${singleCat}`).html(catCard);
       $("textarea").val("");
     })
   })
 
   $("body").on("click", 'div.collapsible-header', function(e) {
-    console.log("um")
-    if ($(e.target).siblings().css('display') === 'none') {
-      $(e.target).siblings().css('display', 'block');
+    const collap = $(e.target).children();
+    if (collap.css('display') === 'none') {
+      $(collap.css('display', 'block'));
     } else {
-      $(e.target).siblings().css('display', 'none')
+      $(collap.css('display', 'none'))
     }
   })
 
   $("body").on("click", "img.delete-icon", function(e) {
-    console.log("hello?", $(e.target).data('cat'));
+    console.log($(e.target).data('cat'));
     let delItem = $(e.target).data('todo');
     let delCat = $(e.target).data('cat');
     $.ajax({
       url: `/delete/${delItem}/${delCat}`,
       type: "POST",
     }).done((todoObj) => {
-      const singleCatTodo = [];
-      todoObj.forEach((todo) => {
-        singleCatTodo.push(todo['todo'])
-      });
-      const catCard = createCategoryCard(singleCatTodo, delCat);
-      $(`.${delCat}`).replaceWith(catCard);
+      const catCard = createCategoryCard(todoObj, delCat);
+      $(`#${delCat}`).html(catCard);
     })
   });
+
+
+
+  var dragAndDrop = {
+    init: function () {
+      this.dragula();
+      this.eventListeners();
+    },
+    eventListeners: function () {
+      this.dragula.on('drop', this.dropped.bind(this));
+    },
+    dragula: function () {
+      this.dragula = dragula([document.getElementById('buy'), document.getElementById('watch'), document.getElementById('read'), document.getElementById('eat'),
+      document.getElementById('misc')], {
+        revertOnSpill: true,
+        copy: false,
+        moves: function (el, container, handle) {
+          return true
+        }
+      });
+    },
+    dropped: function (el) {
+      //const currCat = $(el).data('cat');
+      const newCat = $(el).parent().data('cat');
+      const id = $(el).data('id')
+      console.log (id)
+      $.ajax({
+        url: `/update/${newCat}/${id}`,
+        type: "POST",
+      }).done((result) => {
+        console.log(result)
+        $(el).attr('data-id', newCat);
+      })
+    }
+  };
 
 });

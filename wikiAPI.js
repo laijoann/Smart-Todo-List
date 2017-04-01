@@ -4,7 +4,6 @@ var wikipedia = require("node-wikipedia");
 
 module.exports = (queryItem) => new Promise((res) => {
 	wikipedia.page.data(queryItem, { content: true }, function(response) {
-		console.log(response['categories'])
 		if (response === undefined) {
 			console.log('misc');
 			res('misc');
