@@ -29,8 +29,8 @@ $(() => {
 
     <ul class="collapsible" data-collapsible="accordion">
     ${catItems}
-  </ul>
-  </section>`
+    </ul>
+    </section>`
 
     console.log(catCard)
     return catCard;
@@ -63,11 +63,11 @@ $(() => {
         break;
       };
     }
-    $('body').after(`<div class="catcard"><button id="miscbutton" class="col s2 offset-s1 todo-list">Miscellaneous</button>${createCategoryCard(miscList, "misc")}</div>`);
-    $('body').after(`<div class="catcard"><button id="watchbutton" class="col s2 offset-s1 todo-list">Things to watch</button>${createCategoryCard(watchList, "watch")}</div>`);
-    $('body').after(`<div class="catcard"><button id="readbutton" class="col s2 offset-s1 todo-list">Books to read</button>${createCategoryCard(readList, "read")}</div>`);
-    $('body').after(`<div class="catcard"><button id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy</button>${createCategoryCard(buyList, "buy")}</div>`);
-    $('body').after(`<div class="catcard"><button id="eatbutton" class="col s2 offset-s1 todo-list">Places to eat at</button>${createCategoryCard(eatList, "eat")}</div>`);
+    $('main').after(`<div class="catcard" id="miscbutton" class="col s2 offset-s1 todo-list">Miscellaneous${createCategoryCard(miscList, "misc")}</div>`);
+    $('main').after(`<div class="catcard" id="watchbutton" class="col s2 offset-s1 todo-list">Things to watch${createCategoryCard(watchList, "watch")}</div>`);
+    $('main').after(`<div class="catcard" id="readbutton" class="col s2 offset-s1 todo-list">Books to read${createCategoryCard(readList, "read")}</div>`);
+    $('main').after(`<div class="catcard" id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy${createCategoryCard(buyList, "buy")}</div>`);
+    $('main').after(`<div class="catcard" id="eatbutton" class="col s2 offset-s1 todo-list">Places to eat at${createCategoryCard(eatList, "eat")}</div>`);
 
   };
 
@@ -91,36 +91,6 @@ $(() => {
     })
   })
 
-// <<<<<<< HEAD
-//  $('#miscbutton').on("click", function(){
-//   console.log("wtf mate")
-
-//     let catSlide = $(".misc")
-//     if ((catSlide).is(":visible")) {
-//     catSlide.slideUp();
-//     } else {
-//     catSlide.slideDown();
-//     }
-// });
-
-//  $('#watchbutton').click(function(){
-//   console.log("wtf mate")
-
-//     let catSlide = $(".watch")
-//     if ($(catSlide).is(":visible")) {
-//     catSlide.slideUp();
-//     } else {
-//     catSlide.slideDown();
-//     }
-// });
-
-//   $("#readbutton").click(function(){
-//     let catSlide = $(".read")
-//     if ($(catSlide).is(":visible")) {
-//     catSlide.slideLeft();
-//     } else {
-//     catSlide.slideRight();
-//     }
   $("body").on("click", 'div.collapsible-header', function(e) {
     console.log("um")
     if ($(e.target).siblings().css('display') === 'none') {
@@ -147,26 +117,4 @@ $(() => {
     })
   });
 
-// >>>>>>> c85ab9be4adda493bf9922d4ac8de031fd4882ea
-// });
-
-//    $("#buybutton").click(function(){
-//     let catSlide = $(".buy")
-//     if ($(catSlide).is(":visible")) {
-//     catSlide.slideUp();
-//     } else {
-//     catSlide.slideDown();
-//     }
-// });
-
-//   $("#eatbutton").click(function(){
-//     let catSlide = $(".todolist .eat")
-//     if ($(catSlide).is(":visible")) {
-//     catSlide.slideUp();
-//     } else {
-//     catSlide.slideDown();
-//     }
-// });
 });
-
-
