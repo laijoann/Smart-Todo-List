@@ -18,7 +18,6 @@ $(() => {
       ${item}
       </div>
       <div class="collapsible-body"><span>shaped like a banana</span>
-      <img src="/images/list.ico" class="recat-icon">
       <img data-todo="${item}" data-cat="${categoryName}" src="/images/deleteicon.png" class="delete-icon">
       </div>
       </li>`

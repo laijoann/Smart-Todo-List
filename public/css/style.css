@@ -47,7 +47,7 @@ body {
   height: 3rem;
 }
 
-.material-icons{
+.collapsible-body img{
   height: 1em;
   width: 1em;
   float: right;
@@ -99,4 +99,5 @@ button {
 .dropdown-button {
   float:  right;
 }
+
 
