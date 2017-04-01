@@ -43,6 +43,10 @@ body {
   background: coral;
 }
 
+.collapsible-header {
+  height: 3rem;
+}
+
 .material-icons{
   height: 1em;
   width: 1em;
