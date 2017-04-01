@@ -26,7 +26,7 @@ $(() => {
   <ul class="collapsible" data-collapsible="accordion">
     ${catItems}
   </ul>
-  </section>`
+  </section><br><br>`
     console.log(catCard)
     return catCard;
   }
@@ -58,12 +58,13 @@ $(() => {
         break;
       };
     }
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Miscellaneous</div>`+createCategoryCard(miscList, "misc"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Things to watch</div>`+createCategoryCard(watchList, "watch"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Books to read</div>`+createCategoryCard(readList, "read"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy</div>`+createCategoryCard(buyList, "buy"));
-    $('body').after(`<div id="buybutton" class="col s2 offset-s1 todo-list">Places to eat at</div>`+createCategoryCard(eatList, "eat"));
+    $('body').after(`<button id="miscbutton" class="col s2 offset-s1 todo-list">Miscellaneous</button>`+createCategoryCard(miscList, "misc"));
+    $('body').after(`<button id="watchbutton" class="col s2 offset-s1 todo-list">Things to watch</button>`+createCategoryCard(watchList, "watch"));
+    $('body').after(`<button id="readbutton" class="col s2 offset-s1 todo-list">Books to read</button>`+createCategoryCard(readList, "read"));
+    $('body').after(`<button id="buybutton" class="col s2 offset-s1 todo-list">Stuff to buy</button>`+createCategoryCard(buyList, "buy"));
+    $('body').after(`<button id="eatbutton" class="col s2 offset-s1 todo-list">Places to eat at</button>`+createCategoryCard(eatList, "eat"));
   };
+
 
   $('form').on("submit", (event) => {
     console.log("form submit")
@@ -84,4 +85,54 @@ $(() => {
     $("textarea").val("");
   })
 
+ $('#miscbutton').on("click", function(){
+  console.log("wtf mate")
+
+    let catSlide = $(".misc")
+    if ((catSlide).is(":visible")) {
+    catSlide.slideUp();
+    } else {
+    catSlide.slideDown();
+    }
 });
+
+ $('#watchbutton').click(function(){
+  console.log("wtf mate")
+
+    let catSlide = $(".watch")
+    if ($(catSlide).is(":visible")) {
+    catSlide.slideUp();
+    } else {
+    catSlide.slideDown();
+    }
+});
+
+  $("#readbutton").click(function(){
+    let catSlide = $(".read")
+    if ($(catSlide).is(":visible")) {
+    catSlide.slideLeft();
+    } else {
+    catSlide.slideRight();
+    }
+});
+
+   $("#buybutton").click(function(){
+    let catSlide = $(".buy")
+    if ($(catSlide).is(":visible")) {
+    catSlide.slideUp();
+    } else {
+    catSlide.slideDown();
+    }
+});
+
+  $("#eatbutton").click(function(){
+    let catSlide = $(".todolist .eat")
+    if ($(catSlide).is(":visible")) {
+    catSlide.slideUp();
+    } else {
+    catSlide.slideDown();
+    }
+});
+});
+
+

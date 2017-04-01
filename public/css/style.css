@@ -26,6 +26,8 @@ body {
 .todolist {
     position: relative;
     left: 10%;
+  margin-left: 10%
+
 }
 
 .new-todo h2 {
@@ -61,15 +63,33 @@ body {
     resize: none;
 }
 
-#buybutton {
+
+button {
     float: left;
     border: 2px solid black;
     font-size: 1.70em;
     background: coral;
     border-radius: 10%;
+}
 
+#updateTitle {
+    margin-left: 25%;
+    border-bottom: 1px solid black;
+    margin-right: 25%;
+}
+
+.profileEdit{
+  width: 50%;
+  background: transparent;
+  margin-left: 25%;
+}
+
+.profileEdit .inputVal {
+  height: 1.5em;
+  background: aliceblue;
 }
 
 .dropdown-button {
   float:  right;
 }
+
