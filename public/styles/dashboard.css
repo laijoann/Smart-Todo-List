@@ -4021,8 +4021,8 @@ button.btn-floating {
   cursor: pointer;
   min-height: 3rem;
   line-height: 3rem;
-  padding: 0 1rem;
-  background-color: #fff;
+  padding: 0 2rem;
+  background-color: #eee;
   border-bottom: 1px solid #ddd; }
   .collapsible-header i {
     width: 2rem;
@@ -4037,7 +4037,7 @@ button.btn-floating {
   display: none;
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
-  padding: 2rem; }
+  padding: 0 2rem 0 2em; }
 
 .side-nav .collapsible,
 .side-nav.fixed .collapsible {

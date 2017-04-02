@@ -14,9 +14,36 @@ body {
 }
 
 @media (max-width: 640px) {
-  /*div #watchbutton {
+  div#todocont {
     width: 90%;
-  }*/
+  }
+}
+
+div#todocont {
+  width: 50%;
+  margin: 0 auto;
+}
+
+main.container{
+  width: 50%;
+  margin: 2em auto;
+}
+
+span {
+  font-size: 1.7em;
+  font-weight: bold;
+  position: relative;
+  float: left;
+}
+
+#catlogo {
+  width: 2em;
+  margin: 0 auto;
+  float: left;
+}
+
+form {
+  padding: 0 1em 1em 1em;
 }
 
 .nav-wrapper {
@@ -29,7 +56,6 @@ body {
   background: aliceblue;
   border: 2px solid black;
   border-radius: 5px;
-  margin: 2em 25%;
 }
 
 .todolist {
@@ -47,27 +73,21 @@ body {
 }
 
 .collapsible {
-  margin: 1em 10%;
-  width: 40%;
+  margin: 1em auto;
+}
+
+.collapsible-body {
+  font-size: 95%;
 }
 
 .collapsible-body img{
-  height: 1em;
-  width: 1em;
-  float: right;
-  position: relative;
-  top: 0.5em;
-  left: 1.5em;
-  margin: 0.25em;
-}
-
-#submitTodo {
-  margin: 0.5em;
+  height: 2em;
+  width: 2em;
+  margin: 0 0 0 1em;
+  vertical-align: middle;
 }
 
 #newTodoText {
-  width: 95%;
-  margin: 2.5%;
   resize: none;
 }
 
@@ -81,7 +101,6 @@ body {
   font-size: 1.70em;
   background: mediumseagreen;
   margin: 0 auto;
-  width: 42%;
   text-align: center;
 }
 
@@ -90,7 +109,6 @@ body {
   font-size: 1.70em;
   background: coral;
   margin: 0 auto;
-  width: 42%;
   text-align: center;
 
 }
@@ -100,7 +118,6 @@ body {
   font-size: 1.70em;
   background: hotpink;
   margin: 0 auto;
-  width: 42%;
   text-align: center;
 
 }
@@ -110,7 +127,6 @@ body {
   font-size: 1.70em;
   background: cornflowerblue;
   margin: 0 auto;
-  width: 42%;
   text-align: center;
 }
 
@@ -119,17 +135,11 @@ body {
   font-size: 1.70em;
   background: gold;
   margin: 0 auto;
-  width: 42%;
   text-align: center;
 }
 
 .dropdown-button {
   float:  right;
-}
-
-#catlogo {
-  width: 1.75em;
-  margin-top: 5%;
 }
 
 #loginButton {
@@ -138,5 +148,4 @@ body {
 
 body ul.collapsible {
   position: relative;
-  left: 20%;
 }

@@ -11,7 +11,8 @@ $(() => {
     let catItems = '';
     todoObj.forEach((item) => {
       catItems += `<div ${categoryName}card data-cat="${categoryName}" data-id=${item['id']} class="collapsible-header">${item['todo']}
-      <div class="collapsible-body ${categoryName}card">sample text
+      <div class="collapsible-body ${categoryName}card">
+      delete me if you did me!
       <img data-todo="${item['todo']}" data-cat="${categoryName}" src="/images/deleteicon.png" class="delete-icon">
       </div></div>`
     })

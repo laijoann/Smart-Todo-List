@@ -13,35 +13,36 @@
 
 </head>
 
-  <ul id="dropdown1" class="dropdown-content">
-    <li><a href="/updateprofile">Edit Profile</a></li>
-    <li><a href="/logout">logout</a></li>
-  </ul>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="/"><span>Skeletapp</span></a>
-      <a href="/" class="brand-logo"><img id="catlogo" src="./images/catlogo.jpeg"></a>
-      <!-- <ul class="right hide-on-med-and-down"> -->
-      <!-- Dropdown Trigger -->
-      <a class="dropdown-button" href="#!" data-activates="dropdown1">Settings<i class="material-icons right"></i></a>
-      <!-- </ul> -->
-    </div>
-  </nav>
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="/updateprofile">Edit Profile</a></li>
+  <li><a href="/logout">logout</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo"><span>Skeletapp</span><img id="catlogo" src="./images/catlogo.jpeg"></a>
+    <!-- <ul class="right hide-on-med-and-down"> -->
+    <!-- Dropdown Trigger -->
+    <a class="dropdown-button" href="#!" data-activates="dropdown1">Settings<i class="material-icons right"></i></a>
+    <!-- </ul> -->
+  </div>
+</nav>
 
-  <main class="container">
-    <section class="new-todo">
-      <h2>What do you need to do?</h2>
-      <form>
-        <textarea id= "newTodoText" name="text" placeholder="What needs to be done?"></textarea>
-        <input id="submitTodo" type="submit" value="add it on">
-      </form>
-    </section>
-  </main>
+<main class="container">
+  <section class="new-todo">
+    <h2>What do you need to do?</h2>
+    <form>
+      <textarea id= "newTodoText" name="text" placeholder="What needs to be done?"></textarea>
+      <input id="submitTodo" type="submit" value="add it on">
+    </form>
+  </section>
+</main>
+<div id="todocont">
   <div id="watchbutton">Things to watch</div><ul class="collapsible" data-collapsible="accordion"><div data-cat="watch" id="watch"></div></ul>
   <div id="readbutton">Books to read</div><ul class="collapsible" data-collapsible="accordion"><div data-cat="read" id="read"></div></ul>
   <div id="eatbutton">Places to eat at</div><ul class="collapsible" data-collapsible="accordion"><div data-cat="eat" id="eat"></div></ul>
   <div id="buybutton">Stuff to buy</div><ul class="collapsible" data-collapsible="accordion"><div data-cat="buy" id="buy"></div></ul>
   <div id="miscbutton">Miscellaneous</div><ul class="collapsible" data-collapsible="accordion"><div data-cat="misc" id="misc"></div></ul>
+</div>
 </body>
 
 
