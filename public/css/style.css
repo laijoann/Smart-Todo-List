@@ -132,22 +132,37 @@ body {
 
 .buycard {
   background: mediumseagreen;
+  border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
 }
 
 .watchcard {
   background: cornflowerblue;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
 }
 
 .eatcard {
   background: coral;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
 }
 
 .readcard{
   background: hotpink;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
 }
 
 .misccard {
   background: gold;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
 }
 
 #catlogo {
