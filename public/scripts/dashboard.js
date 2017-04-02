@@ -50,6 +50,7 @@ $(() => {
     $('#misc').html(createCategoryCard(miscList, 'misc'));
 
     dragAndDrop.init();
+    $('.collapsible').collapsible()
   };
 
   $('form').on("submit", (event) => {
@@ -89,7 +90,15 @@ $(() => {
     })
   });
 
-
+  $("body").on("click", "div.collapsible-header", function(e) {
+    console.log($(e.target).children())
+    const targetBody = $(e.target).children();
+    if (!targetBody.is(":visible")) {
+      $(targetBody).slideUp();
+    } else {
+      $(targetBody).slideDown();
+    }
+  })
 
   var dragAndDrop = {
     init: function () {
@@ -123,5 +132,4 @@ $(() => {
       })
     }
   };
-
 });

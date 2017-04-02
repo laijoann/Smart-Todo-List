@@ -1,37 +1,41 @@
 /* Custom Stylesheet */
 /**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
+* Use this file to override Materialize files so you can update
+* the core Materialize files in the future
+*
+* Made By MaterializeCSS.com
+*/
 
 body {
   background: lightslategrey;
-   background: url("../images/wallpaper2.jpeg");
-   background-attachment: fixed;
+  background: url("../images/wallpaper2.jpeg");
+  background-attachment: fixed;
 
 }
 
-
+@media (max-width: 640px) {
+  /*div #watchbutton {
+    width: 90%;
+  }*/
+}
 
 .nav-wrapper {
-    background: lightsteelblue;
-    text-align: center;
-    border-bottom: 1px solid aliceblue;
+  background: lightsteelblue;
+  text-align: center;
+  border-bottom: 1px solid aliceblue;
 }
 
 .new-todo {
-    background: aliceblue;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: 2em 25%;
+  background: aliceblue;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 2em 25%;
 }
 
 .todolist {
-    position: relative;
-    left: 4%;
-    top: -1em;
+  position: relative;
+  left: 4%;
+  top: -1em;
   margin-left: 15%;
   width: 103.5%;
 
@@ -39,16 +43,12 @@ body {
 
 .new-todo h2 {
   font-size: 1.5em;
+  text-align: center;
 }
 
 .collapsible {
   margin: 1em 10%;
   width: 40%;
-}
-
-
-.collapsible-header {
-  height: 3rem;
 }
 
 .collapsible-body img{
@@ -62,13 +62,13 @@ body {
 }
 
 #submitTodo {
-    margin: 0.5em;
+  margin: 0.5em;
 }
 
 #newTodoText {
-    width: 95%;
-    margin: 2.5%;
-    resize: none;
+  width: 95%;
+  margin: 2.5%;
+  resize: none;
 }
 
 .catcard {
@@ -77,92 +77,54 @@ body {
 }
 
 #buybutton {
-    border: 2px solid black;
-    font-size: 1.70em;
-    background: mediumseagreen;
-    margin: 0 29%;
-    width: 42%;
-    text-align: center;
+  border: 2px solid black;
+  font-size: 1.70em;
+  background: mediumseagreen;
+  margin: 0 auto;
+  width: 42%;
+  text-align: center;
 }
 
 #eatbutton {
-    border: 2px solid black;
-    font-size: 1.70em;
-    background: coral;
-    margin: 0 29%;
-    width: 42%;
-    text-align: center;
+  border: 2px solid black;
+  font-size: 1.70em;
+  background: coral;
+  margin: 0 auto;
+  width: 42%;
+  text-align: center;
 
 }
 
 #readbutton {
-    border: 2px solid black;
-    font-size: 1.70em;
-    background: hotpink;
-    margin: 0 29%;
-    width: 42%;
-    text-align: center;
+  border: 2px solid black;
+  font-size: 1.70em;
+  background: hotpink;
+  margin: 0 auto;
+  width: 42%;
+  text-align: center;
 
 }
 
 #watchbutton {
-    border: 2px solid black;
-    font-size: 1.70em;
-    background: cornflowerblue;
-    margin: 0 29%;
-    width: 42%;
-    text-align: center;
-
-
+  border: 2px solid black;
+  font-size: 1.70em;
+  background: cornflowerblue;
+  margin: 0 auto;
+  width: 42%;
+  text-align: center;
 }
 
 #miscbutton {
-    border: 2px solid black;
-    font-size: 1.70em;
-    background: gold;
-    margin: 0 29%;
-    width: 42%;
-    text-align: center;
-
+  border: 2px solid black;
+  font-size: 1.70em;
+  background: gold;
+  margin: 0 auto;
+  width: 42%;
+  text-align: center;
 }
 
 .dropdown-button {
   float:  right;
-}
-
-.buycard {
-  background: mediumseagreen;
-  border-bottom: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
-}
-
-.watchcard {
-  background: cornflowerblue;
-    border-bottom: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
-}
-
-.eatcard {
-  background: coral;
-    border-bottom: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
-}
-
-.readcard{
-  background: hotpink;
-    border-bottom: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
-}
-
-.misccard {
-  background: gold;
-    border-bottom: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
 }
 
 #catlogo {
