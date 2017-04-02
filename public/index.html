@@ -4,52 +4,52 @@
   <title>Home Page</title>
 
 </head>
-
 <body>
-  <h1>login page</h1>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/index.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+  <link rel="stylesheet" href="/styles/index.css" type="text/css" </link>
 
-  <img src="./images/cute-skull-wallpaper-17.jpeg" id="mainLogo">
-
-<section class="homePageLogin">
-
-
-  <form class="col s12" method="POST" action="/">
-    <div class="row">
-      <div class="input-field col s3 offset-8">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo"><img id="catlogo" src="./images/catlogo.jpg"></a>
+      <span>Skelletapp</span>
+      <form class="col s12" method="POST" action="/">
+        <label for="first_name">Email</label>
         <input id="loginEmail" type="text" class="validate" name="email">
-        <label for="first_name"><br>Email</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s3 offset-8">
+
+        <label for="password">Password</label>
         <input id="password" type="password" class="validate" name="password">
-        <label for="password"><br>Password</label>
-          <br><input type="submit" id="loginButton" value= "Login">
-      </div>
-    </div>
+          <input type="submit" id="loginButton" value= "Login">
+
 </form>
-</section>
+    </div>
+  </nav>
 
 <section class="homePageRegister">
 
-  <div class="row">
+  <div class="row"><span>REGISTER</span>
     <form class="col s12" method="POST" action="/register">
       <div class="row">
         <div class="input-field col s3 offset-8">
+        <label for="first_name"><br>Name</label>
           <input id="first_name" type="text" class="validate" name="name">
-          <label for="first_name"><br>Name</label>
+
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3 offset-8">
-          <input id="password" type="password" class="validate" name="password">
           <label for="password"><br>Password</label>
+
+          <input id="password" type="password" class="validate" name="password">
         </div>
       </div>
       <div class="row">
         <div class="input-field col s3 offset-8">
-          <input id="email" type="email" class="validate" name="email">
           <label for="email"><br>Email</label>
+
+          <input id="email" type="email" class="validate" name="email">
         </div>
       </div>
           <br><input type="submit" id="registerButton" value= "Register">
@@ -58,11 +58,8 @@
 </section>
 
 <!-- TODO: make a index.js to accompany this file with a submit button on click event handler that makes AJAX request, pings db for user log in authentication, if valid: post. if not: prevent default and give flash message -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/index.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css"></script>
-  <link rel="stylesheet" href="/styles/index.css" type="text/css" />
+
+
 
   </body>
 

@@ -8,7 +8,12 @@
 
 body {
   background: lightslategrey;
+   background: url("../images/wallpaper1.jpg");
+   background-attachment: fixed;
+
 }
+
+
 
 .nav-wrapper {
     background: lightsteelblue;
@@ -25,13 +30,15 @@ body {
 
 .todolist {
     position: relative;
-    left: 10%;
-  margin-left: 10%
+    left: 4%;
+    top: -1em;
+  margin-left: 15%;
+  width: 103.5%;
 
 }
 
 .new-todo h2 {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .collapsible {
@@ -39,9 +46,6 @@ body {
   width: 40%;
 }
 
-.collapsible-body {
-  background: coral;
-}
 
 .collapsible-header {
   height: 3rem;
@@ -52,7 +56,7 @@ body {
   width: 1em;
   float: right;
   position: relative;
-  top: 2em;
+  top: 0.5em;
   left: 1.5em;
   margin: 0.25em;
 }
@@ -68,36 +72,93 @@ body {
 }
 
 .catcard {
-  margin-bottom: 5%;
+  margin-bottom: 5%;l
+  height: 2em;
 }
 
-button {
-    float: left;
+#buybutton {
+    border: 2px solid black;
+    font-size: 1.70em;
+    background: mediumseagreen;
+    margin: 0 29%;
+    width: 42%;
+    text-align: center;
+}
+
+#eatbutton {
     border: 2px solid black;
     font-size: 1.70em;
     background: coral;
-    border-radius: 10%;
+    margin: 0 29%;
+    width: 42%;
+    text-align: center;
+
 }
 
-#updateTitle {
-    margin-left: 25%;
-    border-bottom: 1px solid black;
-    margin-right: 25%;
+#readbutton {
+    border: 2px solid black;
+    font-size: 1.70em;
+    background: hotpink;
+    margin: 0 29%;
+    width: 42%;
+    text-align: center;
+
 }
 
-.profileEdit{
-  width: 50%;
-  background: transparent;
-  margin-left: 25%;
+#watchbutton {
+    border: 2px solid black;
+    font-size: 1.70em;
+    background: cornflowerblue;
+    margin: 0 29%;
+    width: 42%;
+    text-align: center;
+
+
 }
 
-.profileEdit .inputVal {
-  height: 1.5em;
-  background: aliceblue;
+#miscbutton {
+    border: 2px solid black;
+    font-size: 1.70em;
+    background: gold;
+    margin: 0 29%;
+    width: 42%;
+    text-align: center;
+
 }
 
 .dropdown-button {
   float:  right;
 }
 
+.buycard {
+  background: mediumseagreen;
+}
 
+.watchcard {
+  background: cornflowerblue;
+}
+
+.eatcard {
+  background: coral;
+}
+
+.readcard{
+  background: hotpink;
+}
+
+.misccard {
+  background: gold;
+}
+
+#catlogo {
+  width: 1.75em;
+}
+
+#loginButton {
+  margin-left: 1em;
+}
+
+body ul.collapsible {
+  position: relative;
+  left: 20%;
+}

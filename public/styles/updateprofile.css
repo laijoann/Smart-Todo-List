@@ -1,0 +1,30 @@
+form.profileEdit {
+  color: white;
+  width: 50%;
+  margin-left: 25%;
+}
+form.profileEdit input {
+  color: black;
+}
+
+#updateTitle {
+  color:  navajowhite;
+  text-align: center;
+}
+
+#updateTitle {
+    margin-left: 25%;
+    border-bottom: 1px solid aliceblue;
+    margin-right: 25%;
+}
+
+.profileEdit{
+  width: 50%;
+  background: transparent;
+  margin-left: 25%;
+}
+
+.profileEdit .inputVal {
+  height: 1.5em;
+  background: aliceblue;
+}

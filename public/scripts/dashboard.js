@@ -10,8 +10,8 @@ $(() => {
   function createCategoryCard (todoObj, categoryName) {
     let catItems = '';
     todoObj.forEach((item) => {
-      catItems += `<div data-cat="${categoryName}" data-id=${item['id']} class="collapsible-header">${item['todo']}
-      <div class="collapsible-body">sample text
+      catItems += `<div ${categoryName}card data-cat="${categoryName}" data-id=${item['id']} class="collapsible-header">${item['todo']}
+      <div class="collapsible-body ${categoryName}card">sample text
       <img data-todo="${item['todo']}" data-cat="${categoryName}" src="/images/deleteicon.png" class="delete-icon">
       </div></div>`
     })

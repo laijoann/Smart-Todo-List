@@ -1,16 +1,43 @@
 #mainLogo {
   width: 70%;
   float: left;
+  position: relative;
+  top: 4em;
 }
+
+body {
+  background: lightslategrey;
+   background-image: url("../images/cute-skull-wallpaper-17.jpeg");
+   background-size: cover;
+   background-attachment: fixed;
+
+}
+
+
 
 .homePageRegister {
   border: 1px solid black;
   margin-top: 2em;
   padding-bottom: 1.5em;
-    width: 27%;
-    float: right;
-    height: 7.75em;
+  width: 30%;
+  float: left;
+  height: 8.75em;
+  position: relative;
+  top: 20em;
+  right: -1em;
+  background: slategrey;
+  border-radius: 15px;
+  text-align: center;
 
+}
+
+.homePageRegister .input-field {
+  float: right;
+  margin-right: 1em;
+}
+
+.homePageRegister span{
+  border-bottom: 1px solid;
 }
 
 .homePageLogin {
@@ -22,11 +49,42 @@
 }
 
 #loginButton {
-float: right;
-margin-right: 1em;
+  float: right;
+  margin-right: 1em;
 }
 
 #registerButton {
-float: right;
-margin: -1em 1em;
+  margin: -1em 1em;
+  position: relative;
+  top: 1.25rem;
+  left: -0.35rem;
+  float: right;
+
+}
+
+.nav-wrapper {
+  position: relative;
+  top: -0.5em;
+  left: -0.5em;
+  width: 101.3%;
+  height: 4em;
+}
+
+#catlogo {
+  width: 3.75em;
+  float: left;
+}
+
+.nav-wrapper form {
+  float: right;
+  position: relative;
+  right: 5%;
+  top: 35%;
+}
+
+.nav-wrapper span {
+  font-size: 3em;
+  font-family: arial;
+  color: white;
+  font-weight: bold;
 }
