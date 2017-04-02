@@ -73,6 +73,8 @@ body {
 #catlogo {
   width: 3.75em;
   float: left;
+  margin-top: 0;
+
 }
 
 .nav-wrapper form {
