@@ -9,6 +9,9 @@ $(() => {
     }).done(() => {
       $(".inputVal").val("");
       // ADD FLASH MESSAGE HERE TO SAY DONE :)
+      // $("#updateMessage").text("Your Profile has been Updated Successfully!");
+      //   setTimeout(errorMsg, 2000);
+
     })
   })
 
