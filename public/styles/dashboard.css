@@ -3001,7 +3001,7 @@ nav {
   color: #fff;
   background-color: #ee6e73;
   width: 100%;
-  height: 56px;
+  height: 75px;
   line-height: 56px; }
   nav.nav-extended {
     height: auto; }
@@ -3036,16 +3036,16 @@ nav {
       height: 56px;
       line-height: 56px; }
   nav .brand-logo {
-    position: absolute;
+    /*position: absolute;*/
     color: #fff;
-    display: inline-block;
+    /*display: inline-block;*/
     font-size: 2.1rem;
     padding: 0;
     white-space: nowrap; }
     nav .brand-logo.center {
       left: 50%;
       transform: translateX(-50%); }
-    @media only screen and (max-width: 992px) {
+    /*@media only screen and (max-width: 992px) {
       nav .brand-logo {
         left: 50%;
         transform: translateX(-50%); }
@@ -3056,7 +3056,7 @@ nav {
           left: 0.5rem; }
         nav .brand-logo.right {
           right: 0.5rem;
-          left: auto; } }
+          left: auto; } }*/
     nav .brand-logo.right {
       right: 0.5rem;
       padding: 0; }
@@ -3124,14 +3124,14 @@ nav {
   .navbar-fixed nav {
     position: fixed; }
 
-@media only screen and (min-width: 601px) {
+/*@media only screen and (min-width: 601px) {
   nav.nav-extended .nav-wrapper {
     min-height: 64px; }
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: 64px;
     line-height: 64px; }
   .navbar-fixed {
-    height: 64px; } }
+    height: 64px; } }*/
 
 @font-face {
   font-family: "Roboto";
@@ -3171,7 +3171,7 @@ html {
   font-family: "Roboto", sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.87); }
-  @media only screen and (min-width: 0) {
+  /*@media only screen and (min-width: 0) {
     html {
       font-size: 14px; } }
   @media only screen and (min-width: 992px) {
@@ -3179,7 +3179,7 @@ html {
       font-size: 14.5px; } }
   @media only screen and (min-width: 1200px) {
     html {
-      font-size: 15px; } }
+      font-size: 15px; } }*/
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
@@ -4019,8 +4019,8 @@ button.btn-floating {
 .collapsible-header {
   display: block;
   cursor: pointer;
-  min-height: 3rem;
-  line-height: 3rem;
+  min-height: 2.7rem;
+  line-height: 2.7rem;
   padding: 0 2rem;
   background-color: #eee;
   border-bottom: 1px solid #ddd; }

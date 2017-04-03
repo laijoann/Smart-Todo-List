@@ -15,25 +15,37 @@ body {
 
 @media (max-width: 640px) {
   div#todocont {
-    width: 90%;
+    width: 90% !important;
+  }
+  div.catbuttons {
+    font-size: 2em;
   }
 }
 
 div#todocont {
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
 }
 
 main.container{
-  width: 50%;
+  width: 40%;
   margin: 2em auto;
 }
 
-span {
+div.catbuttons {
+  border: 2px solid black;
+  font-size: 1.50em;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px;
+}
+
+span#brandname {
   font-size: 1.7em;
   font-weight: bold;
   position: relative;
   float: left;
+  text-decoration: none;
 }
 
 #catlogo {
@@ -97,49 +109,28 @@ form {
 }
 
 #buybutton {
-  border: 2px solid black;
-  font-size: 1.70em;
   background: mediumseagreen;
-  margin: 0 auto;
-  text-align: center;
 }
 
 #eatbutton {
-  border: 2px solid black;
-  font-size: 1.70em;
   background: coral;
-  margin: 0 auto;
-  text-align: center;
-
 }
 
 #readbutton {
-  border: 2px solid black;
-  font-size: 1.70em;
   background: hotpink;
-  margin: 0 auto;
-  text-align: center;
-
 }
 
 #watchbutton {
-  border: 2px solid black;
-  font-size: 1.70em;
   background: cornflowerblue;
-  margin: 0 auto;
-  text-align: center;
 }
 
 #miscbutton {
-  border: 2px solid black;
-  font-size: 1.70em;
   background: gold;
-  margin: 0 auto;
-  text-align: center;
 }
 
 .dropdown-button {
   float:  right;
+  font-size: 1.5em;
 }
 
 #loginButton {

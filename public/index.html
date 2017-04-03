@@ -13,55 +13,46 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo"><img id="catlogo" src="./images/catlogo.jpeg"></a>
-      <span>Skelletapp</span>
+      <a href="/" class="brand-logo"><span id="brandname" style="font-size:3em">Skeletapp</span><img id="catlogo" src="./images/catlogo.jpeg"></a>
       <form class="col s12" method="POST" action="/">
         <label for="first_name">Email</label>
         <input id="loginEmail" type="text" class="validate" name="email">
-
         <label for="password">Password</label>
         <input id="password" type="password" class="validate" name="password">
-          <input type="submit" id="loginButton" value= "Login">
-
-</form>
+        <input type="submit" id="loginButton" value= "Login">
+      </form>
     </div>
   </nav>
 
-<section class="homePageRegister">
+  <section class="homePageRegister">
 
-  <div class="row"><span>REGISTER</span>
-    <form class="col s12" method="POST" action="/register">
-      <div class="row">
-        <div class="input-field col s3 offset-8">
-        <label for="first_name"><br>Name</label>
-          <input id="first_name" type="text" class="validate" name="name">
+    <div class="row registerform"><span>REGISTER</span>
+      <form class="col s12" method="POST" action="/register">
+        <div class="row">
+          <div class="input-field col s3 offset-8">
+            <label for="first_name"><br>Name</label>
+            <input id="first_name" type="text" class="validate" name="name">
 
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s3 offset-8">
-          <label for="password"><br>Password</label>
-
-          <input id="password" type="password" class="validate" name="password">
+        <div class="row">
+          <div class="input-field col s3 offset-8">
+            <label for="password"><br>Password</label>
+            <input id="password" type="password" class="validate" name="password">
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s3 offset-8">
-          <label for="email"><br>Email</label>
-
-          <input id="email" type="email" class="validate" name="email">
+        <div class="row">
+          <div class="input-field col s3 offset-8">
+            <label for="email"><br>Email</label>
+            <input id="email" type="email" class="validate" name="email">
+          </div>
         </div>
-      </div>
-          <br><input type="submit" id="registerButton" value= "Register">
-    </form>
-  </div>
-</section>
+        <br><input type="submit" id="registerButton" value= "Register">
+      </form>
+    </div>
+  </section>
 
-<!-- TODO: make a index.js to accompany this file with a submit button on click event handler that makes AJAX request, pings db for user log in authentication, if valid: post. if not: prevent default and give flash message -->
-
-
-
-  </body>
+</body>
 
 
 </html>
