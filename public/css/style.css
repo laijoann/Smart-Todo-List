@@ -18,7 +18,10 @@ body {
     width: 90% !important;
   }
   div.catbuttons {
-    font-size: 2em;
+    font-size: 2em !important;
+  }
+  main.container{
+    width: 90% !important;
   }
 }
 
