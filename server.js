@@ -14,6 +14,7 @@ const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 const path    = require("path");
 const cookieSession = require('cookie-session');
+const imdb = require('imdb-api');
 app.use(cookieSession({
   name: 'session',
   secret: 'cookieKey'
@@ -158,14 +159,18 @@ app.post('/todo', (req, res) => {
     .returning('category')
     .then((categoryArr) => {
       console.log(categoryArr)
-      knex('tododb')
-      .select()
-      .where('category', categoryArr[0])
-      .andWhere('usersid', req.session.userId)
+      imdb.getReq({ name: req.body.text })
       .then((results) => {
-        console.log('bout to send', results)
-        res.json(results)
-      })
+        console.log (results.ratings)
+        knex('tododb')
+        .select()
+        .where('category', categoryArr[0])
+        .andWhere('usersid', req.session.userId)
+        .then((results) => {
+          console.log('bout to send', results)
+          res.json(results, results.ratings)
+        })
+      });
     })
   })
   .catch(console.error);
